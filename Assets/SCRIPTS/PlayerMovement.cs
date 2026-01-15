@@ -15,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
 
     //movement vars
     private Vector2 _moveVelocity;
-    private Vector2 moveInput;
     private bool _isFacingRight;
 
     private PlayerInputActions input;
@@ -68,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
             _rb.linearVelocity = new Vector2(_moveVelocity.x, _rb.linearVelocity.y);
         }
 
-        else if (moveInput ==Vector2.zero)
+        else if (moveInput == Vector2.zero)
         {
             _moveVelocity = Vector2.Lerp(_moveVelocity,Vector2.zero, deceleration* Time.fixedDeltaTime);
             _rb.linearVelocity = new Vector2(_moveVelocity.x, _rb.linearVelocity.y);

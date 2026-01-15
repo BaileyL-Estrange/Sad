@@ -8,7 +8,7 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "1496c4cc-90cf-4315-88e1-9758c65f5740",
                     "expectedControlType": "",
                     "processors": "",
@@ -45,9 +45,9 @@
             ],
             "bindings": [
                 {
-                    "name": "1D Axis",
+                    "name": "2D Vector",
                     "id": "4d1fb928-2b33-4f7b-aaf1-f0e2cf12585d",
-                    "path": "1DAxis",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -56,7 +56,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Negative",
+                    "name": "Up",
                     "id": "a6866426-08be-4081-8b33-0047d4be8038",
                     "path": "<Keyboard>/a",
                     "interactions": "",
@@ -67,9 +67,31 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Positive",
+                    "name": "Down",
                     "id": "93053223-c725-4e78-b427-81e13c09da63",
                     "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Left",
+                    "id": "6eea2560-8e0f-4b23-9337-5b8b91af6dd0",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Right",
+                    "id": "9c963f60-a6ca-4b1a-9b8c-635cd12c6f04",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
