@@ -8013,8 +8013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c01a08291b7f954eb4ff85164135c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questNames:
-  - Click circle
+  questNames: []
 --- !u!1 &1365055184
 GameObject:
   m_ObjectHideFlags: 0
