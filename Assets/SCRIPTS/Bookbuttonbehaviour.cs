@@ -74,18 +74,10 @@ public class Bookbuttonbehaviour : MonoBehaviour
                     int randomNumber = (Random.Range(0, noMemoriesText.Length));
                     memoryTextBox.text = noMemoriesText[randomNumber];
                 }
-            }
-            else
-            {
-                StringBuilder stringBuilder = new();
-                foreach (string quest in MainManager.mainManager.questNames)
-                {
-                    stringBuilder.AppendLine(quest);
-                }
-                questTextBox.text = stringBuilder.ToString();
-            }
-
             memoryTextBox.rectTransform.sizeDelta = new Vector2(memoryTextBox.rectTransform.sizeDelta.x, memoryTextBox.preferredHeight);
+            }
         }
-    }
+    } 
+
 }
+

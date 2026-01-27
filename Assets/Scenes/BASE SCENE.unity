@@ -1617,6 +1617,13 @@ MonoBehaviour:
   - Maybe try looking for more quests...
   noMemoriesText:
   - Looks like you haven't found any memories yet!
+  - No memories
+  - Memory-less
+  - Try searching for a memory...
+  - 'Tip: memories are photos'
+  - 'Tip: the first memory is in the room you spawn in'
+  - 'Tip: memories are everywhere'
+  - 'Tip: you need to click on the memory to store it'
 --- !u!1 &299076724
 GameObject:
   m_ObjectHideFlags: 0
