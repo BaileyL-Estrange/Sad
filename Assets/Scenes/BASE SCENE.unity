@@ -1608,12 +1608,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questPage: {fileID: 2034731237}
   questTextBox: {fileID: 1428671297}
+  memoryTextBox: {fileID: 767946277}
   notification: {fileID: 999420270}
   noQuestsText:
   - No quests
   - 0 quests
   - No quests here
   - Maybe try looking for more quests...
+  noMemoriesText:
+  - Looks like you haven't found any memories yet!
 --- !u!1 &299076724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,7 +1762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9333334, g: 0.95294124, b: 0.96470594, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1783,7 +1786,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299084881}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!114 &299084886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2111,7 +2114,7 @@ Transform:
   m_GameObject: {fileID: 341689536}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.62, y: 0.49, z: -3.9012332}
+  m_LocalPosition: {x: -24, y: 13.8, z: -3.9012332}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3406,7 +3409,7 @@ GameObject:
   - component: {fileID: 555474238}
   - component: {fileID: 555474237}
   - component: {fileID: 555474236}
-  - component: {fileID: 555474235}
+  - component: {fileID: 555474239}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -3414,22 +3417,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &555474235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 555474234}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7df9f1fe02199348a23f65aa4434862, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quest: Get to area one following the arrows
-  notification: {fileID: 999420270}
-  NewQuest: {fileID: 0}
-  RemoveQuest: {fileID: 555474234}
 --- !u!61 &555474236
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3546,6 +3533,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &555474239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555474234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9854fdd88cc4eb42a65eb05379e9ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest: Get to area one following the arrows
+  notification: {fileID: 999420270}
 --- !u!1 &576031129
 GameObject:
   m_ObjectHideFlags: 0
@@ -4669,8 +4670,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest: Get to area one following the arrows
   notification: {fileID: 999420270}
-  NewQuest: {fileID: 701089992}
-  RemoveQuest: {fileID: 0}
 --- !u!1 &710605678
 GameObject:
   m_ObjectHideFlags: 0
@@ -5219,7 +5218,7 @@ GameObject:
   - component: {fileID: 767946278}
   - component: {fileID: 767946277}
   m_Layer: 5
-  m_Name: Text Box
+  m_Name: MemoryText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5266,10 +5265,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
+    m_FontSize: 40
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 4
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -5707,8 +5706,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 534946940}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0.47212532}
+  m_AnchorMax: {x: 1, y: 0.9999987}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7462,7 +7461,7 @@ Transform:
   m_GameObject: {fileID: 1228176355}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.73, y: -1.74, z: -3.9012332}
+  m_LocalPosition: {x: -27.1, y: 8.5, z: -3.9012332}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8416,7 +8415,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1351465485}
   - component: {fileID: 1351465486}
-  - component: {fileID: 1351465487}
   m_Layer: 0
   m_Name: MainManager
   m_TagString: Untagged
@@ -8452,20 +8450,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questNames: []
---- !u!114 &1351465487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1351465484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 012842181083d02459145c63747bc951, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quest: 
-  notification: {fileID: 999420270}
 --- !u!1 &1365055184
 GameObject:
   m_ObjectHideFlags: 0
@@ -8746,7 +8730,7 @@ GameObject:
   - component: {fileID: 1428671298}
   - component: {fileID: 1428671297}
   m_Layer: 5
-  m_Name: Text Box
+  m_Name: QuestText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8768,8 +8752,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000036807945, y: -303.46768}
-  m_SizeDelta: {x: 570.4114, y: 30}
+  m_AnchoredPosition: {x: -0, y: -308.7799}
+  m_SizeDelta: {x: 570.4114, y: 617.5599}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1428671297
 MonoBehaviour:
@@ -8793,10 +8777,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
+    m_FontSize: 40
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 4
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -10856,8 +10840,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 844436951}
   m_HandleRect: {fileID: 844436950}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 0.99999714
+  m_Size: 0.52787334
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

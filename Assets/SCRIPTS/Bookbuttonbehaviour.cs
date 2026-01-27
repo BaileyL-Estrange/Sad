@@ -8,8 +8,10 @@ public class Bookbuttonbehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject questPage;
     [SerializeField] private Text questTextBox;
+    [SerializeField] private Text memoryTextBox;
     [SerializeField] private GameObject notification;
     [SerializeField] private string[] noQuestsText;
+    [SerializeField] private string[] noMemoriesText;
     private bool openBook;
 
     public void OpenQuestBook()
@@ -17,6 +19,7 @@ public class Bookbuttonbehaviour : MonoBehaviour
         openBook = !openBook;
         CreatePage();
         WriteQuests();
+        WriteMemories();
     }
 
     private void CreatePage()
@@ -58,6 +61,31 @@ public class Bookbuttonbehaviour : MonoBehaviour
             }
 
             questTextBox.rectTransform.sizeDelta = new Vector2(questTextBox.rectTransform.sizeDelta.x, questTextBox.preferredHeight);
+        }
+    }
+    private void WriteMemories()
+    {
+        if (memoryTextBox != null)
+        {
+            if(MainManager.mainManager.questNames.Count == 0)
+            {
+                if (noMemoriesText!= null)
+                {
+                    int randomNumber = (Random.Range(0, noMemoriesText.Length));
+                    memoryTextBox.text = noMemoriesText[randomNumber];
+                }
+            }
+            else
+            {
+                StringBuilder stringBuilder = new();
+                foreach (string quest in MainManager.mainManager.questNames)
+                {
+                    stringBuilder.AppendLine(quest);
+                }
+                questTextBox.text = stringBuilder.ToString();
+            }
+
+            memoryTextBox.rectTransform.sizeDelta = new Vector2(memoryTextBox.rectTransform.sizeDelta.x, memoryTextBox.preferredHeight);
         }
     }
 }

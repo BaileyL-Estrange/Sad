@@ -1,25 +1,16 @@
 using UnityEngine;
 
-public class QuestCatalyst2 : MonoBehaviour
+public class TriggerQuestB : MonoBehaviour
 {
         [SerializeField] private string quest;
         [SerializeField] private GameObject notification;
         private bool questAdded = false;
-        public GameObject NewQuest;
-        public GameObject RemoveQuest;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                if(other.gameObject == NewQuest)
-                {
-                 CreateQuest();
-                }
-                else if(other.gameObject == RemoveQuest)
-                {
                 CompleteQuest();
-                }
             }
         }
 
