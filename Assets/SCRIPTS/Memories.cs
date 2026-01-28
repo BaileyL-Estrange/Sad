@@ -4,5 +4,10 @@ using UnityEngine;
 public class Memories : ScriptableObject
 {
     public string memoryTitle;
-    private bool FoundMemory = false;
+    [TextArea(3, 10)]
+    public string memoryDescription;
+    public Sprite memoryImage;
+
+    [HideInInspector]
+    public bool FoundMemory;
 }
