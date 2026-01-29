@@ -8,6 +8,11 @@ public class Memories : ScriptableObject
     public string memoryDescription;
     public Sprite memoryImage;
 
+    public void OnAwake()
+    {
+        FoundMemory = false;
+    }
+
     [HideInInspector]
     public bool FoundMemory;
 }
