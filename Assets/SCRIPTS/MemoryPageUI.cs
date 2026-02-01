@@ -6,7 +6,6 @@ public class MemoryPageUI : MonoBehaviour
     public Text titleText;
     public Text descriptionText;
     public Image memoryImage;
-    public Animator animator;
 
     public void Show(Memories memory)
     {
@@ -15,6 +14,5 @@ public class MemoryPageUI : MonoBehaviour
         memoryImage.sprite = memory.memoryImage;
 
         gameObject.SetActive(true);
-        animator.SetTrigger("Show");
     }
 }

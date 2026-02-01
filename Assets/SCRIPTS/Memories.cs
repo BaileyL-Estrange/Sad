@@ -8,7 +8,7 @@ public class Memories : ScriptableObject
     public string memoryDescription;
     public Sprite memoryImage;
 
-    public void OnAwake()
+    public void OnEnable()
     {
         FoundMemory = false;
     }

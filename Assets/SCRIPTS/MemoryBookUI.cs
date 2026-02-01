@@ -21,10 +21,10 @@ public class MemoryBookUI : MonoBehaviour
         }
         foreach (Memories memory in MemoryManager.instance.memoriesCollected)
         {
-            GameObject buttonObj = Instantiate(memoryButtonPrefab, contentParent);
-            MemoryButton memoryButton = buttonObj.GetComponent<MemoryButton>();
-            memoryButton.Setup(memory);
+            GameObject btn = Instantiate(memoryButtonPrefab, contentParent);
+            btn.GetComponent<MemoryButton>().Setup(memory);
         }
+        Canvas.ForceUpdateCanvases();
     }
 
     public void OpenMemory(Memories memory)
