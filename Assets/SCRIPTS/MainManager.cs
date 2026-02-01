@@ -4,6 +4,7 @@ using UnityEngine;
 public class MainManager : MonoBehaviour
 {
     public List<string> questNames = new();
+    public List<string> memoryNames = new();
     public static MainManager mainManager;
 
     private void Awake()

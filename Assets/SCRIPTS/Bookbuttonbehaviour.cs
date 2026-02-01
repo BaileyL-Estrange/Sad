@@ -7,10 +7,12 @@ using System.Collections;
 
 public class Bookbuttonbehaviour : MonoBehaviour
 {
-    [SerializeField] private GameObject questPage;
+    [SerializeField] private GameObject Page;
     [SerializeField] private Text questTextBox;
+    [SerializeField] private Text memoryTextBox;
     [SerializeField] private GameObject notification;
     [SerializeField] private string[] noQuestsText;
+    [SerializeField] private string[] noMemoriesText;
     private bool openBook;
 
     public void OpenQuestBook()
@@ -18,25 +20,22 @@ public class Bookbuttonbehaviour : MonoBehaviour
         openBook = !openBook;
         CreatePage();
         WriteQuests();
+        WriteMemories();
 
-        if (openBook && MemoryBookUI.Instance != null)
-        {
-         MemoryBookUI.Instance.RefreshMemoryBook();
-        }
     }
 
     private void CreatePage()
     {
-        if(questPage != null && notification != null)
+        if(Page != null && notification != null)
         {
             if (openBook)
             {
-                questPage.SetActive(true);
+                Page.SetActive(true);
                 notification.SetActive(false);
             }
             else
             {
-                questPage.SetActive(false);
+                Page.SetActive(false);
             }
         }
     }
@@ -64,6 +63,31 @@ public class Bookbuttonbehaviour : MonoBehaviour
             }
 
             questTextBox.rectTransform.sizeDelta = new Vector2(questTextBox.rectTransform.sizeDelta.x, questTextBox.preferredHeight);
+        }
+    }
+    private void WriteMemories()
+    {
+        if (memoryTextBox != null)
+        {
+            if(MainManager.mainManager.memoryNames.Count == 0)
+            {
+                if (noMemoriesText!= null)
+                {
+                    int randomNumber = (Random.Range(0, noMemoriesText.Length));
+                    memoryTextBox.text = noMemoriesText[randomNumber];
+                }
+            }
+            else
+            {
+                StringBuilder stringBuilder = new();
+                foreach (string memory in MainManager.mainManager.memoryNames)
+                {
+                    stringBuilder.AppendLine(memory);
+                }
+                memoryTextBox.text = stringBuilder.ToString();
+            }
+
+            memoryTextBox.rectTransform.sizeDelta = new Vector2(memoryTextBox.rectTransform.sizeDelta.x, memoryTextBox.preferredHeight);
         }
     }
 }
