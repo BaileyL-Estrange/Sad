@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D _rb;
 
+    //animation vars
+    public Animator animator;
+
     //movement vars
     private Vector2 _moveVelocity;
     private bool _isFacingRight;
@@ -88,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
         if (moveInput != Vector2.zero)
         {
             TurnCheck(moveInput);
+            animator.SetFloat("movement", 1);
 
             Vector2 targetVelocity = Vector2.zero;
             if (input.Player.Run.IsPressed())
@@ -102,6 +106,7 @@ public class PlayerMovement : MonoBehaviour
 
         else if (moveInput == Vector2.zero)
         {
+            animator.SetFloat("movement", 0);
             _moveVelocity = Vector2.Lerp(_moveVelocity,Vector2.zero, deceleration* Time.fixedDeltaTime);
             _rb.linearVelocity = new Vector2(_moveVelocity.x, _rb.linearVelocity.y);
         }
@@ -138,6 +143,7 @@ public class PlayerMovement : MonoBehaviour
         if (value.isPressed)
         {
             Debug.Log("Recognising jump");
+            animator.SetBool("isjumping", true);
             jumpPressed = true;
             jumpReleased = false;
         }
@@ -341,8 +347,13 @@ public class PlayerMovement : MonoBehaviour
         if (_groundHit.collider != null)
         {
             _isGrounded = true;
+            animator.SetBool("isjumping", false);
         }
-        else { _isGrounded = false; }
+        else 
+        { 
+            _isGrounded = false;
+            animator.SetBool("isjumping", true);
+        }
     }
     private void BumpedHead()
     {
