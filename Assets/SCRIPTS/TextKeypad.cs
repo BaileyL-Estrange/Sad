@@ -157,7 +157,7 @@ public class TextKeypad : MonoBehaviour
 
     public void enter()
     {
-        if (charHolder.text == "LUMA")
+        if (charHolder.text == "FPBA")
         {
             charHolder.text = "CORRECT";
             Door.SetActive(false);
